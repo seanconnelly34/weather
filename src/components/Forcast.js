@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import styled from "@emotion/styled";
-import useFetchWeather from "../hooks/useFetchWeather.js";
+import useFetchWeather from "../hooks/useFetchWeather";
 import TodayForecast from "./TodayForecast";
 import FourDayForecast from "./FourDayForecast";
 import Snackbar from "@mui/material/Snackbar";
-import MuiAlert, { AlertProps } from "@mui/material/Alert";
+import MuiAlert from "@mui/material/Alert";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSpinner, faSlash } from "@fortawesome/free-solid-svg-icons";
 
