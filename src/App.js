@@ -57,7 +57,7 @@ const TabsList = styled(TabsListUnstyled)`
   align-content: space-between;
 `;
 
-export default function UnstyledTabsCustomized() {
+export default function App() {
   return (
     <Container maxWidth='md'>
       <TabsUnstyled defaultValue={0}>
