@@ -13,7 +13,7 @@ import {
  * @param {String} city
  * @return {Object} Returns object with lat and long coordinates
  */
-export function cityLatLong(city) {
+export function cityLatLong(city: string): { lat: string; long: string } {
   switch (city) {
     case "Halifax":
       return { lat: "44.6476", long: "-63.5728" };
@@ -23,7 +23,7 @@ export function cityLatLong(city) {
       return { lat: "19.4326", long: "-99.1332" };
 
     default:
-      return;
+      return { lat: "0", long: "0" };
   }
 }
 
@@ -33,7 +33,7 @@ export function cityLatLong(city) {
  * @param {Number} dayIndex
  * @return {String} Returns day as string
  */
-export function dayOfWeekAsString(dayIndex) {
+export function dayOfWeekAsString(dayIndex: number) {
   return ["Sun", "Mon", "Tue", "Wed", "Thur", "Fri", "Sat"][dayIndex] || "";
 }
 
@@ -43,7 +43,7 @@ export function dayOfWeekAsString(dayIndex) {
  * @param {String} condition
  * @return {Icon} Returns Fontawesome icon
  */
-export function selectIcon(condition) {
+export function selectIcon(condition: string) {
   switch (condition) {
     case "Clouds":
       return faCloud;

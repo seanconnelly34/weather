@@ -7,7 +7,7 @@ import TabsListUnstyled from "@mui/base/TabsListUnstyled";
 import TabPanelUnstyled from "@mui/base/TabPanelUnstyled";
 import { buttonUnstyledClasses } from "@mui/base/ButtonUnstyled";
 import TabUnstyled, { tabUnstyledClasses } from "@mui/base/TabUnstyled";
-import Forcast from "./components/Forcast.js";
+import Forecast from "./components/Forecast";
 
 const Tab = styled(TabUnstyled)`
   font-family: "Work Sans", sans-serif;
@@ -67,13 +67,13 @@ export default function App() {
           <Tab>Mexico</Tab>
         </TabsList>
         <TabPanel value={0}>
-          <Forcast city='Halifax' />
+          <Forecast city='Halifax' />
         </TabPanel>
         <TabPanel value={1}>
-          <Forcast city='Moscow' />
+          <Forecast city='Moscow' />
         </TabPanel>
         <TabPanel value={2}>
-          <Forcast city='Mexico' />
+          <Forecast city='Mexico' />
         </TabPanel>
       </TabsUnstyled>
     </Container>

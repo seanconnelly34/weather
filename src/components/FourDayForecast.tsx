@@ -2,6 +2,7 @@ import React from "react";
 import styled from "@emotion/styled";
 import { dayOfWeekAsString, selectIcon } from "../utils/index";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { IWeatherData } from "../types/apiWeather";
 
 const Container = styled.div`
   width: 100%;
@@ -40,26 +41,29 @@ const IconWrapper = styled.div`
   }
 `;
 
-const FourDayForecast = ({ fourDayForecast }) => {
+type TFourDayForecast = {
+  fourDayForecast: IWeatherData[] | undefined;
+};
+
+const FourDayForecast = ({ fourDayForecast }: TFourDayForecast) => {
   return (
     <div style={{ display: "flex" }}>
-      {fourDayForecast.length > 0 &&
-        fourDayForecast.map((day) => {
-          const date = new Date(day.dt * 1000);
-          const dayOfForcast = date.getDay();
-          return (
-            <Container key={day.dt}>
-              <h2>{dayOfWeekAsString(dayOfForcast)}</h2>
-              <IconWrapper>
-                <FontAwesomeIcon
-                  icon={selectIcon(day.weather[0].main)}
-                  className='weather-icon'
-                />
-              </IconWrapper>
-              <p className='weather-temp'>{Math.floor(day.temp.day)}&deg;</p>
-            </Container>
-          );
-        })}
+      {fourDayForecast?.map((day: IWeatherData) => {
+        const date = new Date(day.dt * 1000);
+        const dayOfForcast = date.getDay();
+        return (
+          <Container key={day.dt}>
+            <h2>{dayOfWeekAsString(dayOfForcast)}</h2>
+            <IconWrapper>
+              <FontAwesomeIcon
+                icon={selectIcon(day.weather[0].main)}
+                className='weather-icon'
+              />
+            </IconWrapper>
+            <p className='weather-temp'>{Math.floor(day.temp.day)}&deg;</p>
+          </Container>
+        );
+      })}
     </div>
   );
 };

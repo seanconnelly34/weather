@@ -2,6 +2,7 @@ import React from "react";
 import styled from "@emotion/styled";
 import { selectIcon } from "../utils/index";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { IWeatherData } from "../types/apiWeather";
 
 const Container = styled.div`
   text-align: center;
@@ -40,10 +41,14 @@ const IconWrapper = styled.div`
   }
 `;
 
-const Today = ({ todayForecast }) => {
+type TTodayForeCast = {
+  todayForecast: IWeatherData[] | undefined;
+};
+
+const TodayForecast = ({ todayForecast }: TTodayForeCast) => {
   return (
     <>
-      {todayForecast.length === 1 && (
+      {todayForecast !== undefined && todayForecast.length === 1 && (
         <Container>
           <h2>Today</h2>
           <div className='weather-main'>
@@ -68,4 +73,4 @@ const Today = ({ todayForecast }) => {
   );
 };
 
-export default Today;
+export default TodayForecast;
