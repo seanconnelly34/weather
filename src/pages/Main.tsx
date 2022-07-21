@@ -8,6 +8,7 @@ import { buttonUnstyledClasses } from "@mui/base/ButtonUnstyled";
 import TabUnstyled, { tabUnstyledClasses } from "@mui/base/TabUnstyled";
 import Forecast from "../components/Forecast";
 
+
 const Tab = styled(TabUnstyled)`
   font-family: "Work Sans", sans-serif;
   text-transform: uppercase;
@@ -61,12 +62,14 @@ type TCities = "Halifax" | "Moscow" | "Mexico";
 const CITY_LIST: TCities[] = ["Halifax", "Moscow", "Mexico"];
 
 const CityList = (cities: TCities[]): React.ReactNode => {
-  return cities.map((city: TCities) => <Tab>{city}</Tab>);
+  return cities.map((city: TCities, index: number) => (
+    <Tab key={index + city}>{city}</Tab>
+  ));
 };
 
 const CityForecast = (cities: TCities[]): React.ReactNode => {
   return cities.map((city: TCities, index: number) => (
-    <TabPanel value={index}>
+    <TabPanel value={index} key={index + city}>
       <Forecast city={city} />
     </TabPanel>
   ));
