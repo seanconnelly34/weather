@@ -7,7 +7,7 @@ import TabPanelUnstyled from "@mui/base/TabPanelUnstyled";
 import { buttonUnstyledClasses } from "@mui/base/ButtonUnstyled";
 import TabUnstyled, { tabUnstyledClasses } from "@mui/base/TabUnstyled";
 import Forecast from "../components/Forecast";
-
+import { StringLiteral } from "typescript";
 
 const Tab = styled(TabUnstyled)`
   font-family: "Work Sans", sans-serif;
